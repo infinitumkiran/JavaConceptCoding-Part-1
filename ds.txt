@@ -1,0 +1,37 @@
+void enqueue()
+{
+ int i=0,count=0;
+ char a[100];
+ scanf("%c", &a[0]);
+ if(a[0]!='\0'){
+   count++;
+   queue[rear]=a[0];
+   rear++;
+}
+ while(a[i]!='\0')
+  {
+   i++;
+  scanf("%c", &a[i]);
+  if(a[i]!='\0')
+    {
+     queue[rear]=a[i];
+     rear++;
+    }
+  count++;
+  }
+  count_array[j]=count;
+  j++;
+}
+ /*j and countarray is globally declared*/
+void dequeue()
+{
+ int remove, i;
+ remove=count_array[j];
+ j--;
+for(i=front;i<=remove;i++)
+{
+ queue[front]=0;
+ printf("%d is removed", a[front]);
+  front++;
+}
+}

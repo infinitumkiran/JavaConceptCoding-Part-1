@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int dp[1000][1000];
+int lsubseq(string s,long x,long y)
+{
+    if(dp[x][y]!=-1)
+     return dp[x][y];
+    if(x==0||y==0)
+     return dp[x][y]=0;
+    if(s[x-1]==s[y-1] && x!=y)
+     return dp[x][y]=lsubseq(s,x-1,y-1)+1;
+    
+    else
+    {
+    
+    return dp[x][y]=max(lsubseq(s,x,y-1),lsubseq(s,x-1,y));
+    }
+}
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+	long n;
+	cin>>n;
+	string str;
+	cin>>str;
+	memset(dp,-1,sizeof(dp));
+	cout<<lsubseq(str,n,n)<<endl;
+    }
+	return 0;
+}
